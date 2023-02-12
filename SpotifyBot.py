@@ -8,13 +8,11 @@ from selenium.webdriver.common.proxy import Proxy, ProxyType
 from selenium.webdriver.support.ui import WebDriverWait
 import time
 import pyautogui
-captch=False
 from anticaptchaofficial.recaptchav2proxyless import *
 import os
 from mailtm import Email
 import requests
 from bs4 import BeautifulSoup
-botcount = 0
 import random
 chrome_options=webdriver.ChromeOptions()
 random_playlist=['https://open.spotify.com/playlist/164fshuZcE0Scul7y6NVkz?si=ZjNKGKeMQJONfq2ZtD7xAw', 'https://open.spotify.com/playlist/1jRam4tFRtmPUvVoXGEBIM?si=M-jdTt0OQoiiq53uRlbPhQ', 'https://open.spotify.com/playlist/3SlK3Meetc1l7OxHYjyH7G?si=5Prb-YmyT8qdY5-q5qap-g', 'https://open.spotify.com/playlist/7mLiDqehe8Fae1iboVRJUh?si=zopRKUyyRumYuMXxBwILvw', 'https://open.spotify.com/playlist/2EmINGcohTI6Qtezw4cWIy?si=10szaVB7REq4CEAvliW68Q', 'https://open.spotify.com/playlist/4LXg7o2j9brKLNM8gEaoal?si=9OozF1bpS6uZgGhYc_pnHQ', 'https://open.spotify.com/playlist/7gdqXHUaODvSp8vyinMpc1?si=YasK4jBHSW22h7KB99Nsdw', 'https://open.spotify.com/playlist/3fkZhShArEgcvGghLKvDy5?si=PrQ1YS5CQLuU8VDQAwjiMg', 'https://open.spotify.com/playlist/4ctoDGbBZrqNxrjARgM2cz?si=iTm3QdVxTviysfiqFg02hQ', 'https://open.spotify.com/playlist/6njZSOR4is919eVTJl21So?si=W12v0hpzQDyqwrF0Dav_fA', 'https://open.spotify.com/playlist/06crwKAjb9adcdJadbHIhP?si=35QG6Y1XQ9efqphJwK-r4Q', 'https://open.spotify.com/playlist/2SpA0rC9EoXFeGOW2vPyGK?si=G3h-eC58RCiBF63LCACWww', 'https://open.spotify.com/playlist/6SBhJI5JkfQ9osBCOD5WQa?si=-xM8hA1zRyOgabuu23Kq8w', 'https://open.spotify.com/playlist/4sDyMTrdCBoisZpdL8YiTH?si=e6qVdkYBT4yCD1U2OFOaIA', 'https://open.spotify.com/playlist/6jS6r4XRaDcT3NH22o4ZyF?si=4Xcb1GT7Tr-ebR8t-nK55A', 'https://open.spotify.com/playlist/1hglBZmeD8dhOVAA16OvHO?si=3IY4TXZtTymGK_-B_D-bfg', 'https://open.spotify.com/playlist/7lYZR416v7jkYWfwAhOcPE?si=yzd05srISdeuzlUX8lF1-g', 'https://open.spotify.com/playlist/5VIyhGUlwChbflXfaFGNfa?si=IMw-4yuvRYW_1zSV-yUEmQ', 'https://open.spotify.com/playlist/1dHhNOr2lJO7dBBX3qBwPp?si=wAtExkavQ8mkjzWg1hK4Kg', 'https://open.spotify.com/playlist/2y6uWobVyL8TmGjA0Mzech?si=OSWMMbRBRHKFCO4dzReH6A']
