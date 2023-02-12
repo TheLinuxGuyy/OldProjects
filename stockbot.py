@@ -47,11 +47,11 @@ weekdays=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'
 months=['January','February','March','April','May','June','July','August','September','October','November','December']
 cryp="Cardano"
 csubject="CRYPTO STOCK INFO (Cardano)"
-myemail="cryptobot693@gmail.com"
-recvemail="clivethompson09@gmail.com"
+myemail=""
+recvemail=""
 password="----------"
 chrome_options=ChromeOptions()
-PATH="C:/Users/clive/Downloads/chromedriver.exe"
+PATH=""
 options=ChromeOptions()
 options.add_argument("--headless")
 driver=webdriver.Chrome(PATH)
