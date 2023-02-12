@@ -237,7 +237,6 @@ async def lsq():
             ms=await ws.recv()
             print(ms)
             if ms=="[START]":
-                print("DONEIWAOFNWIAOBGYHERISNGUESIGNSUISEGINUSEGNUI")
                 break
 asyncio.run(lsq())
 for line in range(len(tr)):
