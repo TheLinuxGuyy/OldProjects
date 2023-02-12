@@ -45,8 +45,6 @@ gettingdaysforpred=str(gettingdaysforpred)
 gettingdaysforpred=gettingdaysforpred.replace('<td align="CENTER" colspan="9">','').replace('2022</td>','')
 weekdays=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday','Monday']
 months=['January','February','March','April','May','June','July','August','September','October','November','December']
-cryp="Cardano"
-csubject="CRYPTO STOCK INFO (Cardano)"
 myemail=""
 recvemail=""
 password="----------"
