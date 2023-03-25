@@ -24,7 +24,8 @@ while True:
        break
    except:
        pass
-for line in range(5):
+inp=input("How many bots do you want to run")
+for line in range(int(inp)):
         ndriver2=uc.Chrome(use_subprocess=True)
         ndriver2.get("https://www.randomlists.com/random-names#:~:text=Random%20names%3A%201%20Callie%20Porter%202%20Ethen%20Schmidt,7%20Heaven%20Day%208%20Belinda%20Key%20More%20items")
         name = ndriver2.find_element(By.XPATH,'/html/body/div/div[1]/main/article/div[2]/ol/li[1]').text
