@@ -10,22 +10,28 @@ from mailtm import Email
 incorrectacc=False
 from bs4 import BeautifulSoup
 chrome_options=webdriver.ChromeOptions()
-inp=input("How many bots do you want to run")
+inp=input("bots: ")
 for line in range(int(inp)):
         if line==0:
             driver=uc.Chrome(use_subprocess=True)
+            driver.get("https://open.spotify.com/")
+            while True:
+                try:
+                    driver.find_element(By.XPATH,'//*[@id="onetrust-accept-btn-handler"]').click()
+                    break
+                except:
+                    pass
         else:
             driver.execute_script('''window.open();''')
-            driver.switch_to_window(driver.window_handles[line])
+            driver.switch_to.window(driver.window_handles[line])
             driver.get("https://open.spotify.com/")
-            input()
-        driver.get("https://open.spotify.com/")
-        while True:
-            try:
-                driver.find_element(By.XPATH,'//*[@id="onetrust-accept-btn-handler"]').click()
-                break
-            except:
-                pass
+            driver.find_element(By.XPATH,'//*[@id="main"]/div/div[2]/div[1]/header/button[2]').click()
+            while True:
+                try:
+                    driver.find_element(By.XPATH,'//*[@id="context-menu"]/div/ul/li[5]/button').click()
+                    break
+                except:
+                    pass
         ndriver2=uc.Chrome(use_subprocess=True)
         ndriver2.get("https://www.randomlists.com/random-names#:~:text=Random%20names%3A%201%20Callie%20Porter%202%20Ethen%20Schmidt,7%20Heaven%20Day%208%20Belinda%20Key%20More%20items")
         name = ndriver2.find_element(By.XPATH,'/html/body/div/div[1]/main/article/div[2]/ol/li[1]').text
@@ -58,6 +64,12 @@ for line in range(int(inp)):
         driver.find_element(By.XPATH,'//*[@id="__next"]/main/div/div/form/div[7]/div/label/span[1]').click()
         while True:
             try:
+                driver.find_element(By.XPATH,'//*[@id="__next"]/main/div/div/form/div[8]/div/button').click()
+                break
+            except:
+                pass
+        while True:
+            try:
                 driver.find_element(By.XPATH,'//*[@id="main"]/div/div[2]/nav/div[1]/ul/li[2]/a')
                 break
             except:
@@ -84,6 +96,12 @@ for line in range(int(inp)):
             while True:
                 try:      
                     driver.find_element(By.XPATH,'//*[@id="main"]/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/main/div/section/div[2]/div[2]/div[4]/div/div/div/div/div/button').click()
+                    break
+                except:
+                    pass
+            while True:
+                try:
+                    driver.find_element(By.XPATH,'//*[@id="main"]/div/div[2]/div[2]/footer/div/div[3]/div/div[3]/button').click()
                     break
                 except:
                     pass
