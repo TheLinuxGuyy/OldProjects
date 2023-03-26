@@ -1,30 +1,37 @@
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-import undetected_chromedriver.v2 as uc
+import undetected_chromedriver as uc
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.proxy import Proxy, ProxyType
 from selenium.webdriver.support.ui import WebDriverWait
 from mailtm import Email
+incorrectacc=False
 from bs4 import BeautifulSoup
 chrome_options=webdriver.ChromeOptions()
-driver=uc.Chrome(use_subprocess=True)
-driver.get("https://open.spotify.com/")
-while True:
-   try:
-       driver.find_element(By.XPATH,'//*[@id="onetrust-accept-btn-handler"]').click()
-       break
-   except:
-       pass
 inp=input("How many bots do you want to run")
 for line in range(int(inp)):
+        if line==0:
+            driver=uc.Chrome(use_subprocess=True)
+        else:
+            driver.execute_script('''window.open();''')
+            driver.switch_to_window(driver.window_handles[line])
+            driver.get("https://open.spotify.com/")
+            input()
+        driver.get("https://open.spotify.com/")
+        while True:
+            try:
+                driver.find_element(By.XPATH,'//*[@id="onetrust-accept-btn-handler"]').click()
+                break
+            except:
+                pass
         ndriver2=uc.Chrome(use_subprocess=True)
         ndriver2.get("https://www.randomlists.com/random-names#:~:text=Random%20names%3A%201%20Callie%20Porter%202%20Ethen%20Schmidt,7%20Heaven%20Day%208%20Belinda%20Key%20More%20items")
         name = ndriver2.find_element(By.XPATH,'/html/body/div/div[1]/main/article/div[2]/ol/li[1]').text
         name=name.split()
         ndriver2.close()
-        incorrectacc=False
+        incorrecacc=False
         test=Email()
         test.register()
         email=test.address
