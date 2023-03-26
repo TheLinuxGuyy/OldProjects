@@ -7,6 +7,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.proxy import Proxy, ProxyType
 from selenium.webdriver.support.ui import WebDriverWait
 from mailtm import Email
+import time
 incorrectacc=False
 from bs4 import BeautifulSoup
 chrome_options=webdriver.ChromeOptions()
@@ -25,7 +26,12 @@ for line in range(int(inp)):
             driver.execute_script('''window.open();''')
             driver.switch_to.window(driver.window_handles[line])
             driver.get("https://open.spotify.com/")
-            driver.find_element(By.XPATH,'//*[@id="main"]/div/div[2]/div[1]/header/button[2]').click()
+            while True:
+                try:
+                    driver.find_element(By.XPATH,'//*[@id="main"]/div/div[2]/div[1]/header/button[2]').click()
+                    break
+                except:
+                    pass
             while True:
                 try:
                     driver.find_element(By.XPATH,'//*[@id="context-menu"]/div/ul/li[5]/button').click()
@@ -105,3 +111,7 @@ for line in range(int(inp)):
                     break
                 except:
                     pass
+            time.sleep(2)
+            print(line)
+        if line==int(inp)-1:
+            input()
