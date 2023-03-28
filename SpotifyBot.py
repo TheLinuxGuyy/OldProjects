@@ -74,6 +74,13 @@ for line in range(int(inp)):
                 break
             except:
                 pass
+        if driver.current_url.startswith("https://challenge.spotify"):
+            while True:
+                try:
+                    driver.find_element(By.XPATH,'//*[@id="encore-web-main-content"]/div/div/div/div/div/button').click()
+                    break
+                except:
+                    pass
         while True:
             try:
                 driver.find_element(By.XPATH,'//*[@id="main"]/div/div[2]/nav/div[1]/ul/li[2]/a')
@@ -86,13 +93,6 @@ for line in range(int(inp)):
             except:
                 pass
         if not incorrectacc:
-            if driver.current_url.startswith("https://challenge.spotify"):
-                while True:
-                    try:
-                        driver.find_element(By.XPATH,'//*[@id="encore-web-main-content"]/div/div/div/div/div/button').click()
-                        break
-                    except:
-                        pass
             while True:
                 try:
                     driver.find_element(By.XPATH,'//*[@id="main"]/div/div[2]/nav/div[1]/ul/li[2]/a')
