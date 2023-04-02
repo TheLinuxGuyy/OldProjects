@@ -23,7 +23,8 @@ for line in range(int(inp)):
                 except:
                     pass
         else:
-            driver.execute_script('''window.open();''')
+            driver.execute_script('''window.open();''')#
+            time.sleep(3)
             driver.switch_to.window(driver.window_handles[line])
             driver.get("https://open.spotify.com/")
             while True:
@@ -74,13 +75,6 @@ for line in range(int(inp)):
                 break
             except:
                 pass
-        if driver.current_url.startswith("https://challenge.spotify"):
-            while True:
-                try:
-                    driver.find_element(By.XPATH,'//*[@id="encore-web-main-content"]/div/div/div/div/div/button').click()
-                    break
-                except:
-                    pass
         while True:
             try:
                 driver.find_element(By.XPATH,'//*[@id="main"]/div/div[2]/nav/div[1]/ul/li[2]/a')
@@ -93,13 +87,18 @@ for line in range(int(inp)):
             except:
                 pass
         if not incorrectacc:
+            time.sleep(7)
+            try:
+                driver.find_element(By.XPATH,'//*[@id="encore-web-main-content"]/div/div/div/div/div/button').click()
+            except:
+                pass
             while True:
                 try:
                     driver.find_element(By.XPATH,'//*[@id="main"]/div/div[2]/nav/div[1]/ul/li[2]/a')
                     break
                 except:
                     pass
-            driver.get("https://open.spotify.com/playlist/2m05eVdbPOtyrfarQWXsdv?si=MqiXWhyBQpW5U-f7xv-n7g&nd=1")
+            driver.get("https://open.spotify.com/playlist/1HMKoB9u4sTtWdBBi0BA7S?si=845d77f7830e4017")
             while True:
                 try:
                     driver.find_element(By.XPATH,'//*[@id="main"]/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/main/div/section/div[2]/div[2]/div[4]/div/div/div/div/button[1]').click()
@@ -121,4 +120,24 @@ for line in range(int(inp)):
             time.sleep(2)
             print(line)
         if line==int(inp)-1:
-            input()
+            while True:
+                for win in range(line):
+                    print(win)
+                    driver.switch_to.window(driver.window_handles[win])
+                    while True:
+                        try:
+                            driver.find_element(By.XPATH,'//*[@id="main"]/div/div[2]/div[2]/footer/div/div[2]/div/div[2]/div[1]')
+                            break
+                        except:
+                            pass
+                    seconds=driver.find_element(By.XPATH,'//*[@id="main"]/div/div[2]/div[2]/footer/div/div[2]/div/div[2]/div[1]').text
+                    seconds=int(seconds.split(":")[1])
+                    print(seconds)
+                    if seconds>35:
+                        while True:
+                            try:
+                                driver.find_element(By.XPATH,'//*[@id="main"]/div/div[2]/div[2]/footer/div/div[2]/div/div[1]/div[2]/button[1]').click()
+                                break
+                            except:
+                                pass
+                    time.sleep(1)
